@@ -1,2 +1,4 @@
-# jupyterhub-gcp
-A collection of libraries for Jupyterhub on the Google Cloud Platform.
+# JupyterHub GCP
+A collection of libraries for Jupyterhub on the [Google Cloud Platform](https://cloud.google.com).
+
+
