@@ -7,6 +7,7 @@
     <groupId>no.ssb.dapla.gcs</groupId>
     <artifactId>access-token-provider</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -230,7 +231,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <systemPropertyVariables>
                         <logback.configurationFile>
