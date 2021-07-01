@@ -114,9 +114,6 @@
         <profile>
             <id>coverage</id>
             <properties>
-                <sonar.coverage.jacoco.xmlReportPaths>
-                    ${project.basedir}/target/site/jacoco/jacoco.xml
-                </sonar.coverage.jacoco.xmlReportPaths>
                 <sonar.java.source>14</sonar.java.source>
             </properties>
             <build>
