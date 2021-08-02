@@ -15,7 +15,7 @@ pr:
 
 resources:
   containers:
-    - container: 'ubuntu_container_for_build_deply_to_nexus'
+    - container: 'build-container'
       image: 'ubuntu:latest'
   repositories:
     - repository: templates
@@ -45,4 +45,4 @@ jobs:
   - template: complete-builds/job-test-nexus.yml@templates
     parameters:
       checkStyleRunAnalysis: false
-      mavenServices: ''
+      mavenServices: 'build-container'
