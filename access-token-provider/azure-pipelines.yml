@@ -69,6 +69,7 @@ jobs:
           options: '-P ssb-bip,coverage --batch-mode $(MAVEN_OPTS)'
           publishJUnitResults: true
           testResultsFiles: '**/TEST-*.xml'
+          codeCoverageToolOption: 'JaCoCo'
           mavenVersionOption: 'Default'
           mavenOptions: '-Xmx3072m'
           mavenAuthenticateFeed: false
