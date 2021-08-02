@@ -61,6 +61,7 @@ jobs:
       # Maven caching to speed up pipeline build time
       - template: maven/task-cache.yml@templates
 
+      # Disable JaCoCo as it fails in parent project
       - task: Maven@3
         displayName: 'Maven test and verify'
         inputs:
@@ -69,7 +70,6 @@ jobs:
           options: '-P ssb-bip,coverage --batch-mode $(MAVEN_OPTS)'
           publishJUnitResults: true
           testResultsFiles: '**/TEST-*.xml'
-          codeCoverageToolOption: 'JaCoCo'
           mavenVersionOption: 'Default'
           mavenOptions: '-Xmx3072m'
           mavenAuthenticateFeed: false
