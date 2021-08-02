@@ -45,3 +45,4 @@ jobs:
   - template: complete-builds/job-test-nexus.yml@templates
     parameters:
       checkStyleRunAnalysis: false
+      mavenServices: ''
