@@ -45,4 +45,5 @@ jobs:
   - template: complete-builds/job-test-nexus.yml@templates
     parameters:
       checkStyleRunAnalysis: false
-      mavenServices: 'build-container'
+      mavenServices:
+        build: build-container
