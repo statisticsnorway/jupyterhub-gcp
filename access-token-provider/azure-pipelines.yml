@@ -73,7 +73,5 @@ jobs:
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
 
-      - template: maven/task-sonar-analyze.yml@templates
-
       # Deploy artifact to Nexus
       - template: maven/task-install-and-deploy-to-nexus.yml@templates
