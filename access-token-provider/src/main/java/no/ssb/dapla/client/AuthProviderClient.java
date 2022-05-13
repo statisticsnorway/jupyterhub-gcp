@@ -20,7 +20,7 @@ public class AuthProviderClient {
 
     public AuthProviderClient(String authProviderUrl) {
         this.authProviderUrl = authProviderUrl;
-        OkHttpClient.Builder builder = new OkHttpClient.Builder().callTimeout(10, TimeUnit.SECONDS);
+        OkHttpClient.Builder builder = new OkHttpClient.Builder().callTimeout(20, TimeUnit.SECONDS);
         builder.addInterceptor(new BearerTokenInterceptor(new JHubTokenSupplier()));
         client = builder.build();
         LOG.info(String.format("Using auth provider url: %s", this.authProviderUrl));
