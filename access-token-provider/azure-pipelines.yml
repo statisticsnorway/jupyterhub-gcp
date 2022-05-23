@@ -39,15 +39,27 @@ variables:
   - name:   MAVEN_OPTS
     value:  '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
 
-# Job which will run mvn build, mvn install and Sonar Analysis (if branch is master)
 jobs:
+  - job: javaLibraryCompleteBuild
+    displayName: 'Java library - build, verify, publish'
+    container: maven:3-jdk-11
+    # Run these jobs on any branch, but not on tags
+    condition: not(startsWith(variables['Build.SourceBranch'], 'refs/tags/'))
 
-  - template: java/library-complete-build.yml@templates
-    parameters:
-      artifactName: jupyterhub-gcp-project
-      mavenContainer: maven:3-jdk-11
-      checkStyleRunAnalysis: true
-      pmdRunAnalysis: true
-      sonarQubeRunAnalysis: false
-      sonarCloud: bipSonarCloud-Dapla
+    steps:
+      # Download GCR credentials
+      - template: maven/task-authenticate-gar.yml
 
+      # Cache to speed up pipeline build time
+      - template: maven/task-cache.yml
+
+      # Maven test and verify (with Sonar, Checkstyle, PMD) and publish to Sonarcloud
+      - template: maven/task-verify.yml
+        parameters:
+          sonarCloud: bipSonarCloud-Dapla
+          checkStyleRunAnalysis: true
+          pmdRunAnalysis: true
+          sonarQubeRunAnalysis: false
+
+      # Deploy to Google Artifact Registry
+      - template: maven/task-install-and-deploy-to-gar.yml
