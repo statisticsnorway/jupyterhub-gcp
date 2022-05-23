@@ -44,7 +44,7 @@ jobs:
 
   - template: java/library-complete-build.yml@templates
     parameters:
-      artifactName: access-token-provider
+      artifactName: jupyterhub-gcp-project
       mavenContainer: maven:3-jdk-11
       checkStyleRunAnalysis: true
       pmdRunAnalysis: true
