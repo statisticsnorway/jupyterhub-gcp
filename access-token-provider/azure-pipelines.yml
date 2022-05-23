@@ -48,13 +48,13 @@ jobs:
 
     steps:
       # Download GCR credentials
-      - template: maven/task-authenticate-gar.yml
+      - template: maven/task-authenticate-gar.yml@templates
 
       # Cache to speed up pipeline build time
-      - template: maven/task-cache.yml
+      - template: maven/task-cache.yml@templates
 
       # Maven test and verify (with Sonar, Checkstyle, PMD) and publish to Sonarcloud
-      - template: maven/task-verify.yml
+      - template: maven/task-verify.yml@templates
         parameters:
           sonarCloud: bipSonarCloud-Dapla
           checkStyleRunAnalysis: true
@@ -62,4 +62,4 @@ jobs:
           sonarQubeRunAnalysis: false
 
       # Deploy to Google Artifact Registry
-      - template: maven/task-install-and-deploy-to-gar.yml
+      - template: maven/task-install-and-deploy-to-gar.yml@templates
