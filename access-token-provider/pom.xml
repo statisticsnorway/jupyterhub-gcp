@@ -6,7 +6,7 @@
 
     <groupId>no.ssb.dapla.gcs</groupId>
     <artifactId>access-token-provider</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
