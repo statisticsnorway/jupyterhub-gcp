@@ -56,7 +56,7 @@ jobs:
       # Maven test and verify (with Sonar, Checkstyle, PMD) and publish to Sonarcloud
       - template: maven/task-verify.yml@templates
         parameters:
-          sonarCloud: bipSonarCloud-Dapla
+          sonarCloud: bipSonarCloud
           checkStyleRunAnalysis: true
           pmdRunAnalysis: true
           sonarQubeRunAnalysis: false
